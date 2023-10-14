@@ -43,7 +43,7 @@ const PlayerSearch: React.FC<PlayerSearchProps> = ({
           setIsLoading(false);
         });
     },
-    [playerInput, handleIdRetrieved, setIsLoading],
+    [playerInput, handleIdPrefetch, handleIdRetrieved, setIsLoading],
   );
 
   return (
