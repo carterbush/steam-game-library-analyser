@@ -31,7 +31,9 @@ const PlayerOverviewCard: React.FC<PlayerOverviewCardProps> = ({
       {!playerOverview || !playerSummary ? (
         <HourglassBottom />
       ) : (
-        <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
+        <CardContent
+          sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}
+        >
           <CardMedia
             sx={{ width: 184 }}
             component="img"
