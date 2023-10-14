@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Game } from '../models/game';
 import api from '../api';
 import GameCard from './GameCard';
-import { Grid } from '@mui/material';
+import { Card, Grid } from '@mui/material';
 
 interface GameCardsProps {
   playerId: string;
@@ -22,9 +22,20 @@ const GameCards: React.FC<GameCardsProps> = ({ playerId }) => {
   }, [playerId]);
 
   return isLoading ? (
-    <HourglassBottom />
+    <Card
+      sx={{
+        mt: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 2,
+      }}
+    >
+      <HourglassBottom />
+    </Card>
   ) : (
-    <Grid container sx={{ marginTop: 1 }} spacing={1}>
+    <Grid container sx={{ mt: 1 }} spacing={1}>
       {playerGames.map((game) => (
         <Grid
           item

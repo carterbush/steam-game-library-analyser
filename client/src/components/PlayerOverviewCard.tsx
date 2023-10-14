@@ -29,7 +29,17 @@ const PlayerOverviewCard: React.FC<PlayerOverviewCardProps> = ({
   return (
     <Card>
       {!playerOverview || !playerSummary ? (
-        <HourglassBottom />
+        <CardContent
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 2,
+          }}
+        >
+          <HourglassBottom />
+        </CardContent>
       ) : (
         <CardContent
           sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}
