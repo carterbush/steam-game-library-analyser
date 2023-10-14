@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { SteamService } from './steam.service';
 import { Game, PlayerSummary } from 'steamapi';
 import { PlayerOverview } from './models/playerOverview';
+import { SteamService } from './steam.service';
 
 @Controller('steam')
 export class SteamController {

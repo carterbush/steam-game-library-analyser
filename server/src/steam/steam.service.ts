@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import SteamAPI, { Game, PlayerSummary } from 'steamapi';
 import _ from 'lodash';
+import SteamAPI, { Game, PlayerSummary } from 'steamapi';
 import { PlayerOverview } from './models/playerOverview';
 
 @Injectable()
