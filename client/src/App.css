@@ -1,6 +1,15 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+
   padding: 2rem;
-  text-align: center;
+
+  box-sizing: border-box;
 }
