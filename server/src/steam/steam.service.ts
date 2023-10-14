@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import SteamAPI, { Game } from 'steamapi';
+import SteamAPI, { Game, PlayerSummary } from 'steamapi';
 import _ from 'lodash';
 import { PlayerOverview } from './models/playerOverview';
 
@@ -25,6 +25,10 @@ export class SteamService {
       totalPlayTime: _.sum(games.map((g) => g.playTime)),
       mostPlayedGame: _.maxBy(games, (g) => g.playTime),
     };
+  }
+
+  public async getPlayerSummary(userId: string): Promise<PlayerSummary> {
+    return this.steam.getUserSummary(userId);
   }
 
   public async resolveUsername(username: string): Promise<string> {
