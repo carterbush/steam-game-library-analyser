@@ -10,5 +10,5 @@ export interface Game {
   smallHeaderURL: string;
   tinyHeaderURL: string;
   backgroundURL: string;
-  lastPlayed: number;
+  lastPlayed?: number;
 }
