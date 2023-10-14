@@ -40,7 +40,7 @@ const PlayerOverviewCard: React.FC<PlayerOverviewCardProps> = ({
           <Box sx={{ margin: 1 }}>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h4">{playerSummary.nickname}</Typography>
-              <Typography color="grey" variant="h6">
+              <Typography color="#808080" variant="h6">
                 {playerSummary.steamID}
               </Typography>
             </Box>
