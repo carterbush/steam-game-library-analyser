@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import _ from 'lodash';
 import SteamAPI, { Game, PlayerSummary } from 'steamapi';
+import { GameDetails } from './models/gameDetails';
 import { PlayerOverview } from './models/playerOverview';
 
 @Injectable()
@@ -11,6 +12,14 @@ export class SteamService {
   constructor(private readonly configService: ConfigService) {
     const steamApiKey = this.configService.get<string>('STEAM_API_KEY');
     this.steam = new SteamAPI(steamApiKey);
+  }
+
+  public async getGameDetails(appId: string): Promise<GameDetails> {
+    try {
+      return await this.steam.getGameDetails(appId);
+    } catch {
+      return Promise.resolve({});
+    }
   }
 
   public async getPlayerGames(userId: string): Promise<Game[]> {
