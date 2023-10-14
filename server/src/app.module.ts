@@ -1,7 +1,5 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { SteamModule } from './steam/steam.module';
 
 @Module({
@@ -11,7 +9,5 @@ import { SteamModule } from './steam/steam.module';
     }),
     SteamModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
