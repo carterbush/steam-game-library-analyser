@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Header, Param } from '@nestjs/common';
 import { Game, PlayerSummary } from 'steamapi';
 import { GameDetails } from './models/gameDetails';
 import { PlayerOverview } from './models/playerOverview';
@@ -9,6 +9,7 @@ export class SteamController {
   constructor(private readonly steamService: SteamService) {}
 
   @Get('game/:appid/details')
+  @Header('Cache-Control', 'max-age=3600')
   public getGameDetails(@Param('appid') appId: string): Promise<GameDetails> {
     return this.steamService.getGameDetails(appId);
   }
