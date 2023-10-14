@@ -8,7 +8,7 @@ const host = import.meta.env.VITE_BACKEND_HOST;
 const api = {
   getPlayerId: (username: string): Promise<string> =>
     axios
-      .get(`${host}/steam/player/${username}`)
+      .get(`${host}/steam/player/${username}`, { transformResponse: [] })
       .then((res) => res.data as string),
 
   getPlayerGames: (userid: string): Promise<Game[]> =>
