@@ -3,6 +3,7 @@ import PlayerOverviewCard from './components/PlayerOverviewCard';
 import PlayerSearch from './components/PlayerSearch';
 import './App.css';
 import { Paper } from '@mui/material';
+import GameCards from './components/GameCards';
 
 function App() {
   const [playerId, setPlayerId] = useState<string>('');
@@ -15,6 +16,7 @@ function App() {
         handleIdRetrieved={setPlayerId}
       ></PlayerSearch>
       {playerId && <PlayerOverviewCard playerId={playerId} />}
+      {playerId && <GameCards playerId={playerId} />}
     </Paper>
   );
 }
