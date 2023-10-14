@@ -2,10 +2,16 @@ import axios from 'axios';
 import { Game } from '../models/game';
 import { PlayerOverview } from '../models/playerOverview';
 import { PlayerSummary } from '../models/playerSummary';
+import { GameDetails } from '../models/gameDetails';
 
 const host = import.meta.env.VITE_BACKEND_HOST;
 
 const api = {
+  getGameDetails: (appid: number): Promise<GameDetails> =>
+    axios
+      .get(`${host}/steam/game/${appid}/details`)
+      .then((res) => res.data as GameDetails),
+
   getPlayerId: (username: string): Promise<string> =>
     axios
       .get(`${host}/steam/player/${username}`, { transformResponse: [] })
