@@ -24,14 +24,13 @@ const PlayerSearch: React.FC<PlayerSearchProps> = ({ handleIdRetrieved }) => {
       api
         .getPlayerId(playerName)
         .then((id) => {
-          console.log(id);
           handleIdRetrieved(id);
         })
         .finally(() => {
           setIsLoading(false);
         });
     },
-    [playerName],
+    [playerName, handleIdRetrieved, setIsLoading],
   );
 
   return (
