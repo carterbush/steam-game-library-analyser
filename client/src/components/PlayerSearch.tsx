@@ -5,10 +5,14 @@ import api from '../api';
 import { isSteamId } from '../utils';
 
 interface PlayerSearchProps {
+  handleIdPrefetch: () => void;
   handleIdRetrieved: (id: string) => void;
 }
 
-const PlayerSearch: React.FC<PlayerSearchProps> = ({ handleIdRetrieved }) => {
+const PlayerSearch: React.FC<PlayerSearchProps> = ({
+  handleIdPrefetch,
+  handleIdRetrieved,
+}) => {
   const [playerInput, setPlayerInput] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -21,6 +25,9 @@ const PlayerSearch: React.FC<PlayerSearchProps> = ({ handleIdRetrieved }) => {
     (e: SyntheticEvent) => {
       e.preventDefault();
       setIsLoading(true);
+
+      // Clear existing user immediately
+      handleIdPrefetch();
 
       // If the input is a steam id, we can directly use that. Otherwise, assume it's a
       // player's username and try and convert it via the backend
