@@ -1,0 +1,13 @@
+{
+  "importOrder": ["<THIRD_PARTY_MODULES>", "^[./]", "^[../]"],
+  "importOrderSortSpecifiers": true,
+  "importOrderSeparation": false,
+  "importOrderParserPlugins": [
+    "typescript",
+    "jsx",
+    "classProperties",
+    "decorators-legacy"
+  ],
+  "singleQuote": true,
+  "trailingComma": "all"
+}
