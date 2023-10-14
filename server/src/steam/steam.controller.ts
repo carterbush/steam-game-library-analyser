@@ -1,6 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { SteamService } from './steam.service';
 import { Game } from 'steamapi';
+import { PlayerOverview } from './models/playerOverview';
 
 @Controller('steam')
 export class SteamController {
@@ -14,5 +15,12 @@ export class SteamController {
   @Get('player/:userid/games')
   public getPlayerGames(@Param('userid') userId: string): Promise<Game[]> {
     return this.steamService.getPlayerGames(userId);
+  }
+
+  @Get('player/:userid/overview')
+  public getPlayerOverview(
+    @Param('userid') userId: string,
+  ): Promise<PlayerOverview> {
+    return this.steamService.getPlayerOverview(userId);
   }
 }
