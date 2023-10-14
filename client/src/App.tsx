@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import PlayerOverviewCard from './components/PlayerOverviewCard';
 import PlayerSearch from './components/PlayerSearch';
 import './App.css';
-import { Paper } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 import GameCards from './components/GameCards';
 import Header from './components/Header';
 
@@ -17,9 +17,17 @@ function App() {
         <PlayerSearch
           handleIdPrefetch={clearPlayerId}
           handleIdRetrieved={setPlayerId}
-        ></PlayerSearch>
-        {playerId && <PlayerOverviewCard playerId={playerId} />}
-        {playerId && <GameCards playerId={playerId} />}
+        />
+        {playerId && (
+          <Box sx={{ mt: 1 }}>
+            <PlayerOverviewCard playerId={playerId} />
+          </Box>
+        )}
+        {playerId && (
+          <Box sx={{ mt: 1 }}>
+            <GameCards playerId={playerId} />
+          </Box>
+        )}
       </Paper>
     </>
   );
