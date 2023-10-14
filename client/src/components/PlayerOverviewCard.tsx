@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { PlayerOverview } from '../models/playerOverview';
-import { PlayerSummary } from '../models/playerSummary';
-import api from '../api';
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { HourglassBottom } from '@mui/icons-material';
+import { useEffect, useState } from 'react';
+import api from '../api';
+import { PlayerOverview } from '../models/playerOverview';
+import { PlayerSummary } from '../models/playerSummary';
 import { formatMinsAsHours } from '../utils';
 
 interface PlayerOverviewCardProps {
