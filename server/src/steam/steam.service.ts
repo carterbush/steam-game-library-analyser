@@ -14,7 +14,11 @@ export class SteamService {
   }
 
   public async getPlayerGames(userId: string): Promise<Game[]> {
-    return this.steam.getUserOwnedGames(userId);
+    try {
+      return await this.steam.getUserOwnedGames(userId);
+    } catch {
+      return Promise.resolve([]);
+    }
   }
 
   public async getPlayerOverview(userId: string): Promise<PlayerOverview> {
@@ -28,10 +32,20 @@ export class SteamService {
   }
 
   public async getPlayerSummary(userId: string): Promise<PlayerSummary> {
-    return this.steam.getUserSummary(userId);
+    try {
+      return await this.steam.getUserSummary(userId);
+    } catch {
+      return Promise.resolve(null);
+    }
   }
 
   public async resolveUsername(username: string): Promise<string> {
-    return this.steam.resolve(`https://steamcommunity.com/id/${username}`);
+    try {
+      return await this.steam.resolve(
+        `https://steamcommunity.com/id/${username}`,
+      );
+    } catch {
+      return Promise.resolve(null);
+    }
   }
 }
