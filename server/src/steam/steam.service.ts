@@ -7,12 +7,11 @@ export class SteamService {
   private steam: SteamAPI;
 
   constructor(private readonly configService: ConfigService) {
-    const steamApiKey = configService.get<string>('STEAM_API_KEY');
+    const steamApiKey = this.configService.get<string>('STEAM_API_KEY');
     this.steam = new SteamAPI(steamApiKey);
   }
 
-  public resolveUsername(username: string): string {
-    // todo
-    return username;
+  public async resolveUsername(username: string): Promise<string> {
+    return this.steam.resolve(`https://steamcommunity.com/id/${username}`);
   }
 }
