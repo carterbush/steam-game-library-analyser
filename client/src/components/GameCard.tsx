@@ -71,7 +71,16 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
             <Close color="primary" />
           </IconButton>
         </DialogTitle>
-        <DialogContent sx={{ p: 0, width: 'auto' }}>
+        <DialogContent
+          sx={{
+            p: 0,
+            width: 'auto',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: 100,
+          }}
+        >
           <GameDetailsView gameId={game.appID} />
         </DialogContent>
       </Dialog>
