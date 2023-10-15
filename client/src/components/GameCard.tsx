@@ -2,14 +2,16 @@ import {
   Box,
   Card,
   CardMedia,
+  Dialog,
+  DialogContent,
+  DialogTitle,
   Grid,
   IconButton,
-  Modal,
   Typography,
 } from '@mui/material';
 import { Game } from '../models/game';
 import { formatMinsAsHours } from '../utils';
-import { Info } from '@mui/icons-material';
+import { Close, Info } from '@mui/icons-material';
 import { useCallback, useState } from 'react';
 import GameDetailsView from './GameDetailsView';
 
@@ -55,15 +57,24 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
           </IconButton>
         </Box>
       </Card>
-      <Modal
-        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-        open={isModalOpen}
-        onClose={closeModal}
-      >
-        <div>
+      <Dialog fullWidth maxWidth="lg" open={isModalOpen} onClose={closeModal}>
+        <DialogTitle
+          sx={{
+            p: 0,
+            position: 'absolute',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <IconButton sx={{ mr: 2 }} onClick={closeModal}>
+            <Close color="primary" />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent sx={{ p: 0, width: 'auto' }}>
           <GameDetailsView gameId={game.appID} />
-        </div>
-      </Modal>
+        </DialogContent>
+      </Dialog>
     </>
   );
 };
