@@ -51,7 +51,11 @@ const GameDetailsView: React.FC<GameDetailsProps> = ({ gameId }) => {
             <Typography variant="h6" color="#808080">
               Release date: {gameDetails?.release_date?.date}
             </Typography>
-            <Typography color="#808080" sx={{ flexGrow: 1, mt: 1 }}>
+            <Typography
+              color="#808080"
+              sx={{ flexGrow: 1, mt: 1 }}
+              component="div"
+            >
               <div
                 dangerouslySetInnerHTML={{
                   __html: gameDetails?.detailed_description ?? '',
@@ -61,6 +65,7 @@ const GameDetailsView: React.FC<GameDetailsProps> = ({ gameId }) => {
             <Box sx={{ mt: 1 }}>
               {gameDetails?.genres?.map((genre) => (
                 <Chip
+                  key={genre?.id}
                   sx={{ color: '#808080', mr: 2 }}
                   label={genre?.description}
                   variant="outlined"
