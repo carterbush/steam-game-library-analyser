@@ -27,7 +27,7 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
     <>
       <Card sx={{ display: 'flex', height: '100%' }}>
         <Grid container sx={{ flexGrow: 1, alignContent: 'flex-start' }}>
-          <Grid item xs="auto">
+          <Grid item xs={12} sm="auto">
             <CardMedia
               sx={{ maxWidth: 231, maxHeight: 87 }}
               component="img"
