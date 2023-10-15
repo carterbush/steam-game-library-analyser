@@ -1,12 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/api",
-      "destination": "https://steam-game-library-analyser-backend.vercel.app/"
+      "source": "/api/:match*",
+      "destination": "https://steam-game-library-analyser-backend.vercel.app/:match*"
     },
     {
-      "source": "/*",
-      "destination": "https://steam-game-library-analyser-frontend.vercel.app/"
+      "source": "/:match*",
+      "destination": "https://steam-game-library-analyser-frontend.vercel.app/:match*"
     }
   ]
 }
