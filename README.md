@@ -22,7 +22,7 @@ Built using npm v9.5.1 and node v18.16.1
 cd server
 
 # Copy env file template and fill in the Steam API key in the new .env file
-mv .env.example .env
+cp .env.example .env
 
 # Install
 npm install
@@ -40,7 +40,7 @@ npm run start:dev
 cd client
 
 # Copy env file template and update any values as needed
-mv .env.example .env
+cp .env.example .env
 
 # Install
 npm install
