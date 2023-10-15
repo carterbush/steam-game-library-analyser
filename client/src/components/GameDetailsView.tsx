@@ -38,7 +38,7 @@ const GameDetailsView: React.FC<GameDetailsProps> = ({ gameId }) => {
       <Grid container spacing={2}>
         <Grid item xs={12} md="auto">
           <CardMedia
-            sx={{ width: 460, height: 215 }}
+            sx={{ maxWidth: 460, maxHeight: 215 }}
             component="img"
             image={gameDetails?.header_image}
           />
