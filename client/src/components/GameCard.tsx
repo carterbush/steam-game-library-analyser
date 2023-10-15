@@ -55,7 +55,9 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
         open={isModalOpen}
         onClose={closeModal}
       >
-        <GameDetailsView gameId={game.appID} />
+        <div>
+          <GameDetailsView gameId={game.appID} />
+        </div>
       </Modal>
     </>
   );
