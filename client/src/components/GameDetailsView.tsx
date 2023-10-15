@@ -1,5 +1,5 @@
 import { HourglassBottom } from '@mui/icons-material';
-import { Box, Card, CardMedia, Chip, Typography } from '@mui/material';
+import { Box, Card, CardMedia, Chip, Grid, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import api from '../api';
 import { GameDetails } from '../models/gameDetails';
@@ -35,37 +35,41 @@ const GameDetailsView: React.FC<GameDetailsProps> = ({ gameId }) => {
         boxSizing: 'border-box',
       }}
     >
-      <Box sx={{ display: 'flex' }}>
-        <CardMedia
-          sx={{ width: 460, height: 215 }}
-          component="img"
-          image={gameDetails?.header_image}
-        />
-        <Box sx={{ display: 'flex', flexDirection: 'column', ml: 2, mb: 1 }}>
-          <Typography variant="h3" color="lightgrey">
-            {gameDetails?.name}
-          </Typography>
-          <Typography variant="h6" color="#808080">
-            Release date: {gameDetails?.release_date?.date}
-          </Typography>
-          <Typography color="#808080" sx={{ flexGrow: 1, mt: 1 }}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: gameDetails?.detailed_description ?? '',
-              }}
-            />
-          </Typography>
-          <Box sx={{ mt: 1 }}>
-            {gameDetails?.genres?.map((genre) => (
-              <Chip
-                sx={{ color: '#808080', mr: 2 }}
-                label={genre?.description}
-                variant="outlined"
+      <Grid container spacing={2}>
+        <Grid item xs={12} md="auto">
+          <CardMedia
+            sx={{ width: 460, height: 215 }}
+            component="img"
+            image={gameDetails?.header_image}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', mb: 1 }}>
+            <Typography variant="h3" color="lightgrey">
+              {gameDetails?.name}
+            </Typography>
+            <Typography variant="h6" color="#808080">
+              Release date: {gameDetails?.release_date?.date}
+            </Typography>
+            <Typography color="#808080" sx={{ flexGrow: 1, mt: 1 }}>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: gameDetails?.detailed_description ?? '',
+                }}
               />
-            ))}
+            </Typography>
+            <Box sx={{ mt: 1 }}>
+              {gameDetails?.genres?.map((genre) => (
+                <Chip
+                  sx={{ color: '#808080', mr: 2 }}
+                  label={genre?.description}
+                  variant="outlined"
+                />
+              ))}
+            </Box>
           </Box>
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
 
       <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
         {gameDetails?.screenshots?.map((screenshot) => (
