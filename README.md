@@ -58,3 +58,4 @@ npm run dev
 - Error handling is primitive at best
 - Some of the front-end styling is pretty rough (that's timeboxing for you!)
 - Deployment configuration is half in configuration files, half configured in my Vercel account. It would be nicer for it to be all configuration
+- Some weird styling quirks can occur on the Game Cards; games with long titles in particular will wrap at different points causing the layout to be inconsistent

@@ -2,6 +2,7 @@ import {
   Box,
   Card,
   CardMedia,
+  Grid,
   IconButton,
   Modal,
   Typography,
@@ -24,26 +25,30 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
 
   return (
     <>
-      <Card sx={{ display: 'flex' }}>
-        <CardMedia
-          sx={{ width: 231, height: 87 }}
-          component="img"
-          image={game.headerMediumURL}
-        />
-        <Box sx={{ ml: 1, flexGrow: 1 }}>
-          <Typography variant="h6">
-            <strong>{game.name}</strong>
-          </Typography>
-          <Typography>
-            {formatMinsAsHours(game.playTime)} hours on record
-          </Typography>
-          {!!game.lastPlayed && (
-            <Typography>
-              last played on{' '}
-              {new Date(game.lastPlayed * 1000).toLocaleDateString()}
+      <Card sx={{ display: 'flex', height: '100%' }}>
+        <Grid container sx={{ flexGrow: 1, alignContent: 'flex-start' }}>
+          <Grid item xs="auto">
+            <CardMedia
+              sx={{ maxWidth: 231, maxHeight: 87 }}
+              component="img"
+              image={game.headerMediumURL}
+            />
+          </Grid>
+          <Grid item sx={{ ml: 1, flexGrow: 1 }} xs={6}>
+            <Typography variant="h6">
+              <strong>{game.name}</strong>
             </Typography>
-          )}
-        </Box>
+            <Typography>
+              {formatMinsAsHours(game.playTime)} hours on record
+            </Typography>
+            {!!game.lastPlayed && (
+              <Typography>
+                last played on{' '}
+                {new Date(game.lastPlayed * 1000).toLocaleDateString()}
+              </Typography>
+            )}
+          </Grid>
+        </Grid>
         <Box>
           <IconButton onClick={openModal}>
             <Info />
