@@ -5,7 +5,7 @@
       "destination": "https://steam-game-library-analyser-backend.vercel.app/"
     },
     {
-      "source": "/",
+      "source": "/*",
       "destination": "https://steam-game-library-analyser-frontend.vercel.app/"
     }
   ]
