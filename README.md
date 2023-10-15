@@ -2,6 +2,8 @@
 
 This monorepo contains a client and server that allows the user to search up Steam users by either their username or steam ID and see details about their game collection
 
+You can view the deployed product here: https://steam-game-library-analyser.vercel.app/
+
 ## Cool features
 
 - Username lookup, rather than just steam ID
@@ -52,5 +54,7 @@ npm run dev
 ## Possible Improvements and known issues
 
 - API Pagination (user accounts with a huge library have a correspondingly huge amount of games and the application does not like the giant payload)
-- Error handling is primitive
+- API design is pretty rough, without any metadata on responses or designed very defensively
+- Error handling is primitive at best
 - Some of the front-end styling is pretty rough (that's timeboxing for you!)
+- Deployment configuration is half in configuration files, half configured in my Vercel account. It would be nicer for it to be all configuration
